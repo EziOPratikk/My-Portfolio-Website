@@ -352,6 +352,17 @@ hr {
 .projects-card:hover {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  animation: card-shake 0.2s ease-in;
+}
+
+@keyframes card-shake {
+  0% {
+    transform: rotate(-5deg);
+  }
+
+  100% {
+    transform: rotate(5deg);
+  }
 }
 
 .project-icon {
