@@ -91,7 +91,7 @@ button:hover {
   transition: 0.25s;
 }
 
-.navbar > div {
+.hamburger-container {
   display: none;
 }
 
@@ -119,11 +119,32 @@ button:hover {
   color: var(--amber);
   font-weight: bold;
   font-size: 2.5rem;
+  border-right: 3px solid;
+  width: fit-content;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3s alternate, cursor 0.4s infinite alternate;
+  animation-iteration-count: infinite;
 }
 
 .main-left-side :nth-child(3) {
   font-weight: bold;
   font-size: 3.5rem;
+}
+
+@keyframes cursor {
+  50% {
+    border-color: var(--huntergreen);
+  }
+}
+
+@keyframes typing {
+  from {
+    max-width: 0;
+  }
+  to {
+    max-width: 100%;
+  }
 }
 
 .main-right-side {
@@ -191,7 +212,7 @@ hr {
 
 .about-left-side {
   width: 30%;
-  text-align: justify;
+  line-height: 1.5rem;
 }
 
 .about-left-side :nth-child(1) {
@@ -246,7 +267,7 @@ hr {
 }
 
 .fill-javascript-bar {
-  width: 50%;
+  width: 60%;
   animation: javascript 3s;
 }
 
@@ -503,7 +524,7 @@ textarea:focus {
     margin-right: 0.5rem !important;
   }
 
-  .navbar li {
+  .navbar > li {
     display: none;
   }
 
@@ -511,13 +532,26 @@ textarea:focus {
     justify-content: flex-end;
   }
 
-  .navbar > div {
+  .hamburger-container {
     display: block;
+    position: relative;
   }
 
-  .hamburger-menu {
+  .hamburger-menu-icon {
     width: 55px;
     cursor: pointer;
+  }
+
+  .js-menu-container {
+    display: none;
+    padding: 1rem 2rem;
+    right: 0;
+    position: absolute;
+    background-color: beige;
+    border-radius: 4px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+      rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    line-height: 3rem;
   }
 
   .contact-grid {

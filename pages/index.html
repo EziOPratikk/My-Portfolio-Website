@@ -18,12 +18,20 @@
 
     <nav class="navbar-container">
       <ul class="navbar">
-        <div>
+        <div class="hamburger-container">
           <img
             src="../assets/icons/hamburger-menu-icon.png"
             alt="hamburger-menu-icon"
-            class="hamburger-menu"
+            class="hamburger-menu-icon js-hamburger-menu-icon"
           />
+          <div class="js-menu-container">
+            <ul>
+              <li class="js-home js-navbar-li">Home</li>
+              <li class="js-about js-navbar-li">About</li>
+              <li class="js-projects js-navbar-li">Projects</li>
+              <li class="js-contact js-navbar-li">Contact</li>
+            </ul>
+          </div>
         </div>
         <li class="js-home js-navbar-li">Home</li>
         <li class="js-about js-navbar-li">About</li>
@@ -61,7 +69,10 @@
                 class="github-icon"
               />
             </a>
-            <a href="#" target="_blank">
+            <a
+              href="https://www.linkedin.com/in/pratik-khadka-b53baa264/"
+              target="_blank"
+            >
               <img
                 src="../assets/icons/linkedin.png"
                 alt="linkedin"
@@ -85,10 +96,10 @@
             Kathmandu, Nepal.
           </p>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
-            corrupti eveniet eligendi voluptatum. Vero excepturi quam commodi
-            ipsam quibusdam, ipsa odit iusto ratione sint sequi ut neque cum
-            expedita cumque recusandae est illo eaque.
+            An enthusiastic individual with a passion regarding application
+            development. Looking forward to experience professional environment,
+            learn new things and level up those skills. Keen to make a strong
+            start to IT career by fully utilizing training and skills.
           </p>
           <a href="../assets/Pratik Khadka-CV.pdf" download="Pratik Khadka-CV"
             ><button>Download CV</button></a
@@ -206,9 +217,9 @@
         </div>
         <div class="contact-form-container">
           <form>
-            <input type="text" placeholder="Name" name="name" required/>
-            <input type="email" placeholder="Email" name="email" required/>
-            <input type="text" placeholder="Subject" name="Subject" required/>
+            <input type="text" placeholder="Name" name="name" required />
+            <input type="email" placeholder="Email" name="email" required />
+            <input type="text" placeholder="Subject" name="Subject" required />
             <textarea
               cols="65"
               rows="8"
@@ -239,11 +250,14 @@
 
       <div id="snackbar-container">
         <div class="snackbar js-snackbar">
-          <img src="../assets/icons/success.png" alt="success" class="snackbar-icon"/>
+          <img
+            src="../assets/icons/success.png"
+            alt="success"
+            class="snackbar-icon"
+          />
           <p>Message sent successfully! Thank you.</p>
         </div>
       </div>
-      
     </section>
 
     <script src="../index.js"></script>

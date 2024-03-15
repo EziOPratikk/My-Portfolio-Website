@@ -11,16 +11,16 @@ navbarListElements.forEach((listItem) => {
 
     switch (listItemClass) {
       case 'js-home':
-        scrollHandler(homeSectionElement);
+        handleScroll(homeSectionElement);
         break;
       case 'js-about':
-        scrollHandler(aboutSectionElement);
+        handleScroll(aboutSectionElement);
         break;
       case 'js-projects':
-        scrollHandler(projectsSectionElement);
+        handleScroll(projectsSectionElement);
         break;
       case 'js-contact':
-        scrollHandler(contactSectionElement);
+        handleScroll(contactSectionElement);
         break;
       default:
         console.log('Error occured!');
@@ -31,7 +31,7 @@ navbarListElements.forEach((listItem) => {
 // Scroll down to contact section when clicked on 'Get in Touch' button
 const getInTouchButtonElement = document.querySelector('.js-get-in-touch-btn');
 getInTouchButtonElement.addEventListener('click', () => {
-  scrollHandler(contactSectionElement);
+  handleScroll(contactSectionElement);
 
   // const height = document.body.scrollHeight;
   // window.scroll(0, height);
@@ -56,9 +56,21 @@ window.onscroll = function () {
   }
 };
 
-function scrollHandler(sectionName) {
+function handleScroll(sectionName) {
   sectionName.scrollIntoView();
 }
+
+const hamburgerMenuIconElement = document.querySelector(
+  '.js-hamburger-menu-icon'
+);
+hamburgerMenuIconElement.addEventListener('click', () => {
+  const menuContainerElement = document.querySelector('.js-menu-container');
+  if (menuContainerElement.style.display === 'block') {
+    menuContainerElement.style.display = 'none';
+  } else {
+    menuContainerElement.style.display = 'block';
+  }
+});
 
 const sendButton = document.querySelector('.js-send-button');
 const snackbarDivElement = document.getElementById('snackbar-container');
