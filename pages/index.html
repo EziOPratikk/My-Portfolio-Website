@@ -96,10 +96,11 @@
             Kathmandu, Nepal.
           </p>
           <p>
-            An enthusiastic individual with a passion regarding application
-            development. Looking forward to experience professional environment,
-            learn new things and level up those skills. Keen to make a strong
-            start to IT career by fully utilizing training and skills.
+            I am an explorer, constantly seeking out new challenges and
+            opportunities to refine my craft. Eager to dive into the dynamic
+            realm of professional development, I thrive on the exhilarating
+            journey of learning and skill mastery. In addition, I love to hop on
+            an exciting quest as well as push myself to the limits.
           </p>
           <a href="../assets/Pratik Khadka-CV.pdf" download="Pratik Khadka-CV"
             ><button>Download CV</button></a
@@ -216,16 +217,17 @@
           <p>9865389789</p>
         </div>
         <div class="contact-form-container">
-          <form>
+          <form id="contact-form" onsubmit="handleFormSubmit(event)">
             <input type="text" placeholder="Name" name="name" required />
             <input type="email" placeholder="Email" name="email" required />
-            <input type="text" placeholder="Subject" name="Subject" required />
+            <input type="text" placeholder="Subject" name="subject" required />
             <textarea
               cols="65"
               rows="8"
-              name="textarea"
+              name="message"
               placeholder="Message"
               minlength="10"
+              required
             ></textarea>
             <div style="text-align: center">
               <button type="submit" class="js-send-button">Send</button>
@@ -248,16 +250,7 @@
 
       <!-- Snackbar Notification  -->
 
-      <div id="snackbar-container">
-        <div class="snackbar js-snackbar">
-          <img
-            src="../assets/icons/success.png"
-            alt="success"
-            class="snackbar-icon"
-          />
-          <p>Message sent successfully! Thank you.</p>
-        </div>
-      </div>
+      <div id="snackbar-container"></div>
     </section>
 
     <script src="../scripts/index.js"></script>
