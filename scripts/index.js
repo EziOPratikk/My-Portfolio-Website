@@ -75,16 +75,60 @@ hamburgerMenuIconElement.addEventListener('click', () => {
 const sendButton = document.querySelector('.js-send-button');
 const snackbarDivElement = document.getElementById('snackbar-container');
 
-sendButton.addEventListener('click', (e) => {
-  e.preventDefault();
-
-  // const paragraphElement = document.createElement('p');
-  // paragraphElement.textContent = 'Email sent successfully! Thank you.';
-  // snackbar.appendChild(paragraphElement);
+function handleSnackbarRender(message, type) {
+  const html = `
+    <div class='snackbar js-snackbar'>
+      <img
+        src='../assets/icons/${type}.png'
+        alt=${type}
+        class='snackbar-icon'
+      />
+      <p class='js-snackbar-content'>${message}</p>
+    </div>
+  `;
 
   snackbarDivElement.style.display = 'flex';
 
   setTimeout(() => {
     snackbarDivElement.style.display = 'none';
   }, 5000);
-});
+
+  return html;
+}
+
+function handleFormSubmit(e) {
+  e.preventDefault();
+
+  const formData = new FormData(e.currentTarget);
+  const userData = Object.fromEntries(formData);
+
+  fetch('http://localhost:3000/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(userData),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.message === 'email already exists') {
+        return (snackbarDivElement.innerHTML = handleSnackbarRender(
+          "Oops! It seems like you've already sent a message. Let's not double up!",
+          'warning'
+        ));
+      }
+      snackbarDivElement.innerHTML = handleSnackbarRender(
+        data.message,
+        'success'
+      );
+    })
+    .catch((e) => {
+      snackbarDivElement.innerHTML = handleSnackbarRender(
+        'Error occured while sending a message!.',
+        'error'
+      );
+    });
+
+  const contactFormElement = document.getElementById('contact-form');
+  contactFormElement.reset();
+}
