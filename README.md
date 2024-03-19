@@ -12,8 +12,15 @@ https://github.com/EziOPratikk/My-Portfolio-Website.git
 
 2. Get node_modules
 
+i. Change directory
+
 ```
 cd backend
+```
+
+ii. Install required node modules
+
+```
 npm install
 ```
 
@@ -24,7 +31,7 @@ TBA
 ```
 
 ## Screenshots
-
+ 
 ```
 TBA
 ```
