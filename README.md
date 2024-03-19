@@ -13,6 +13,7 @@ https://github.com/EziOPratikk/My-Portfolio-Website.git
 2. Get node_modules
 
 ```
+cd backend
 npm install
 ```
 
