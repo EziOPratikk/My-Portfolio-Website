@@ -40,6 +40,7 @@ getInTouchButtonElement.addEventListener('click', () => {
 // Scroll to the top when clicked on 'Uparrow' button
 const upArrowButtonElement = document.querySelector('.js-up-arrow-box');
 upArrowButtonElement.addEventListener('click', () => {
+  handleRenderSendButtonSpinner();
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 });
@@ -59,6 +60,26 @@ window.onscroll = function () {
 function handleScroll(sectionName) {
   sectionName.scrollIntoView();
 }
+
+window.addEventListener('scroll', () => {
+  // Check if the section is in view
+  const rect = aboutSectionElement.getBoundingClientRect();
+
+  const partiallyVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+
+  // If section is in view, trigger animation
+  if (partiallyVisible) {
+    const circleElements = document.getElementsByClassName('path');
+    circleElements[0].style.animation = 'round-path-html 1s 1s linear forwards';
+    circleElements[1].style.animation = 'round-path-css 1s 1s linear forwards';
+    circleElements[2].style.animation = 'round-path-js 1s 1s linear forwards';
+    circleElements[3].style.animation =
+      'round-path-react 1s 1s linear forwards';
+    circleElements[4].style.animation = 'round-path-ts 1s 1s linear forwards';
+    circleElements[5].style.animation =
+      'round-path-flutter 1s 1s linear forwards';
+  }
+});
 
 const hamburgerMenuIconElement = document.querySelector(
   '.js-hamburger-menu-icon'
@@ -99,6 +120,8 @@ function handleSnackbarRender(message, type) {
 function handleFormSubmit(e) {
   e.preventDefault();
 
+  handleRenderSendButtonSpinner();
+
   const formData = new FormData(e.currentTarget);
   const userData = Object.fromEntries(formData);
 
@@ -111,6 +134,7 @@ function handleFormSubmit(e) {
   })
     .then((response) => response.json())
     .then((data) => {
+      handleRenderSendButtonSpinner();
       if (data.message === 'email already exists') {
         return (snackbarDivElement.innerHTML = handleSnackbarRender(
           "Oops! It seems like you've already sent a message. Let's not double up!",
@@ -123,6 +147,7 @@ function handleFormSubmit(e) {
       );
     })
     .catch((e) => {
+      handleRemoveSendButtonSpinner();
       snackbarDivElement.innerHTML = handleSnackbarRender(
         'Error occured while sending a message!.',
         'error'
@@ -131,4 +156,16 @@ function handleFormSubmit(e) {
 
   const contactFormElement = document.getElementById('contact-form');
   contactFormElement.reset();
+}
+
+const spinnerElement = document.querySelector('.spinner-container');
+
+function handleRenderSendButtonSpinner() {
+  spinnerElement.style.display = 'inline';
+  sendButton.style.display = 'none';
+}
+
+function handleRemoveSendButtonSpinner() {
+  spinnerElement.style.display = 'none';
+  sendButton.style.display = 'inline';
 }

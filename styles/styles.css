@@ -207,12 +207,13 @@ hr {
   display: flex;
   justify-content: center;
   gap: 4rem;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .about-left-side {
   width: 30%;
   line-height: 1.5rem;
+  text-align: justify;
 }
 
 .about-left-side :nth-child(1) {
@@ -223,19 +224,109 @@ hr {
 
 .about-right-side {
   width: 40%;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
   padding: 10px 15px;
   border-radius: 4px;
   cursor: pointer;
   transition: 0.25s;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
 }
 
-.about-right-side:hover {
+/* .about-right-side:hover {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+} */
+
+.radial-bar {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.about-right-side li {
+.radial-bar svg {
+  transform: rotate(-90deg);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.radial-bar .progress-bar {
+  stroke-width: 15;
+  stroke: rgb(214, 214, 214);
+  fill: transparent;
+  stroke-dasharray: 502;
+  stroke-dashoffset: -1;
+  stroke-linecap: round;
+}
+
+.path {
+  stroke-width: 15;
+  stroke: #5cb85c;
+  fill: transparent;
+  stroke-dasharray: 502;
+  stroke-dashoffset: 502;
+  stroke-linecap: round;
+}
+
+@keyframes round-path-html {
+  100% {
+    stroke-dashoffset: 125;
+  }
+}
+
+@keyframes round-path-css {
+  100% {
+    stroke-dashoffset: 160;
+  }
+}
+
+@keyframes round-path-js {
+  100% {
+    stroke-dashoffset: 200;
+  }
+}
+
+@keyframes round-path-react {
+  100% {
+    stroke-dashoffset: 250;
+  }
+}
+
+@keyframes round-path-ts {
+  100% {
+    stroke-dashoffset: 250;
+  }
+}
+
+@keyframes round-path-flutter {
+  100% {
+    stroke-dashoffset: 300;
+  }
+}
+
+.skill-img {
+  position: absolute;
+  width: 30%;
+  height: 30%;
+}
+
+.skill-img:hover {
+  transform: rotate(360deg);
+  transition: 0.45s ease-in;
+}
+
+.about-right-side :nth-child(3) .skill-img {
+  border-radius: 20%;
+}
+
+/* .about-right-side li {
   margin: 0.5rem 0;
   padding: 6px;
   line-height: 2rem;
@@ -329,7 +420,7 @@ hr {
   100% {
     width: 50%;
   }
-}
+} */
 
 .projects-container {
   display: flex;
@@ -457,6 +548,27 @@ textarea:focus {
   border: 1px solid var(--huntergreen);
 }
 
+.spinner-container {
+  display: none;
+  background-color: transparent;
+  cursor: progress;
+}
+
+.spinner-container > div {
+  height: 20px;
+  width: 20px;
+  border: 4px solid;
+  border-color: var(--huntergreen) transparent var(--huntergreen) transparent;
+  border-radius: 50%;
+  animation: spin 1.2s ease infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .up-arrow-box {
   display: none;
   color: var(--huntergreen);
@@ -565,6 +677,21 @@ textarea:focus {
     line-height: 3rem;
   }
 
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-left-side {
+    width: 70% !important;
+    text-align: center;
+  }
+
+  .about-right-side {
+    width: 70%;
+    grid-template-columns: 1fr 1fr !important;
+  }
+
   .contact-grid {
     grid-template-columns: 1fr !important;
     padding: 0 2rem;
@@ -589,11 +716,25 @@ textarea:focus {
     gap: 1rem;
   }
 
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .about-left-side {
+    width: 70% !important;
+  }
+
+  .about-right-side {
+    width: 70%;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  /* .about-left-side {
     padding-left: 1rem;
     width: 40%;
     text-align: left;
-  }
+  } */
 
   .projects-container {
     flex-direction: column;
@@ -648,6 +789,10 @@ textarea:focus {
     grid-column: span 2;
   }
 
+  .about-right-side {
+    padding: 0 3rem;
+  }
+
   form textarea {
     width: 90%;
   }
@@ -663,8 +808,8 @@ textarea:focus {
     padding: 0 5rem;
   }
 
-  .contact-form-container {
+  /* .contact-form-container {
     order: 5;
     grid-column: span 2;
-  }
+  } */
 }
