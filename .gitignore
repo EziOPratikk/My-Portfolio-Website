@@ -1,1 +1,5 @@
+# Dependency directories
 /backend/node_modules
+
+# preferences
+/.vscode
