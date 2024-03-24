@@ -12,6 +12,10 @@ const static_path = path.join(__dirname, '../public/');
 
 app.use(express.json());
 app.use(express.static(static_path));
+
+// ----- alternative way of loading public folder -----
+// app.use(express.static("public"));
+
 app.use(express.urlencoded({ extended: false }));
 
 app.use(cors());
