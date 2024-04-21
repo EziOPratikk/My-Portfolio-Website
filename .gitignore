@@ -3,3 +3,6 @@
 
 # preferences
 /.vscode
+
+# Environment Varaibles
+/backend/.env
