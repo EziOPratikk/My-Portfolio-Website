@@ -541,6 +541,12 @@ textarea:focus {
   }
 }
 
+.footer-container {
+  text-align: center;
+  padding-bottom: 1rem;
+  font-weight: 600;
+}
+
 @media (max-width: 600px) {
   .navbar-container {
     padding: 1rem !important;
