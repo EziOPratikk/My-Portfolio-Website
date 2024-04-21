@@ -59,12 +59,14 @@ button {
   padding: 12px 15px;
   border-radius: 4px;
   margin-top: 2rem;
-  cursor: pointer;
   transition: 0.25s;
 }
 
 button:hover {
   color: var(--huntergreen) !important;
+  transform: translate(0, -4px);
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .navbar-container {
@@ -224,7 +226,6 @@ hr {
 
 .about-right-side {
   width: 40%;
-  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
   padding: 10px 15px;
   border-radius: 4px;
   cursor: pointer;
@@ -233,11 +234,6 @@ hr {
   grid-template-columns: repeat(3, 1fr);
   justify-content: center;
 }
-
-/* .about-right-side:hover {
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
-    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-} */
 
 .radial-bar {
   position: relative;
@@ -326,102 +322,6 @@ hr {
   border-radius: 20%;
 }
 
-/* .about-right-side li {
-  margin: 0.5rem 0;
-  padding: 6px;
-  line-height: 2rem;
-}
-
-.line-bar {
-  background-color: var(--huntergreen);
-  display: block;
-  height: 10px;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.line-bar span {
-  height: 10px;
-  float: left;
-  background: var(--amber);
-}
-
-.fill-html-bar {
-  width: 80%;
-  animation: html 3s;
-}
-
-.fill-css-bar {
-  width: 60%;
-  animation: css 3s;
-}
-
-.fill-javascript-bar {
-  width: 60%;
-  animation: javascript 3s;
-}
-
-.fill-react-js-bar {
-  width: 50%;
-  animation: react-js 3s;
-}
-
-.fill-flutter-bar {
-  width: 50%;
-  animation: flutter 3s;
-}
-
-@keyframes html {
-  0% {
-    width: 0%;
-  }
-
-  100% {
-    width: 80%;
-  }
-}
-
-@keyframes css {
-  0% {
-    width: 0%;
-  }
-
-  100% {
-    width: 60%;
-  }
-}
-
-@keyframes javascript {
-  0% {
-    width: 0%;
-  }
-
-  100% {
-    width: 50%;
-  }
-}
-
-@keyframes react-js {
-  0% {
-    width: 0%;
-  }
-
-  100% {
-    width: 50%;
-  }
-}
-
-@keyframes flutter {
-  0% {
-    width: 0%;
-  }
-
-  100% {
-    width: 50%;
-  }
-} */
-
 .projects-container {
   display: flex;
   justify-content: center;
@@ -433,7 +333,7 @@ hr {
 
 .projects-card {
   padding: 30px 50px;
-  width: 18%;
+  width: 17.5rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   border-radius: 4px;
   cursor: pointer;
@@ -807,9 +707,4 @@ textarea:focus {
     grid-template-columns: 1fr 1fr;
     padding: 0 5rem;
   }
-
-  /* .contact-form-container {
-    order: 5;
-    grid-column: span 2;
-  } */
 }
